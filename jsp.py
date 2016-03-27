@@ -82,7 +82,7 @@ def evolve(population, retain=0.2, random_select=0.05, mutate=0.01):
 	return parents
 
 p_count = 100
-i_length = 7
+i_length = len(jobs)
 
 p = population(p_count,i_length)
 fitness_history = [grade(p),]
@@ -90,12 +90,10 @@ fitness_history = [grade(p),]
 for i in xrange(100):
 	p = evolve(p)
 
-seq = p[len(p)-1]
-for x in xrange(len(seq)):
-	seq[x] = seq[x] + 1
+graded = [(fitness(x), x) for x in p]   #Make an ordered pair of (fitness_of_individual, individual)
+graded = [ x[1] for x in sorted(graded)]	
 
-print seq
-print m2
+print graded[0]
 
 
 

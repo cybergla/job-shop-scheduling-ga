@@ -1,14 +1,14 @@
 from random import randint
 
-jobs = [
-	(20, 25), 
-	(90, 60),
-	(80, 75), 
-	(20, 30),          #jobs[job_no][machine_no]
-	(120, 90),
-	(15, 35),
-	(65, 50) 
-]
+jobs = []
+
+fin = open("jobs.txt",'r')
+
+for line in fin:
+	split = str.split(line)
+	j1 = int(split[0])
+	j2 = int(split[1])
+	jobs.append((j1,j2))
 
 m1 = {
 	'in' : [],
@@ -19,6 +19,8 @@ m2 = {
 	'in' : [],
 	'out' : []
 }
+
+#print jobs
 
 def makespan(sequence = []):
 	m1['in'] = []
