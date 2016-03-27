@@ -89,10 +89,6 @@ fitness_history = [grade(p),]
 
 for i in xrange(100):
 	p = evolve(p)
-	fitness_history.append(grade(p))
-
-for datum in fitness_history:
-	print datum
 
 seq = p[len(p)-1]
 for x in xrange(len(seq)):
